@@ -7,15 +7,31 @@ package com.jgranados.ipc1_2026.poo.basicos.articulos;
 /**
  *
  * @author jose
+ * 
+ * Modificadores de visibilidad:
+ * private: el miembro solo es visible para la propia clase
+ * protected: el miembro es visible por la propia clase, clases hijas y clases en el mismo paquete    
+ * public: el miembro es visible por cualquier otro objeto
+ * default: el miembro es visible por la propia clase y clases del mismo paquete
  */
 public class Articulo {
     public static final float PORCENTAJE_INCREMENTO_PRECIO_MAYOR = 0.15f;
     public static final float PORCENTAJE_INCREMENTO_PRECIO_MENOR = 0.30f;
     
     
-    float costoBase;
+    private float costoBase;
     
-    float calcularPrecioAlMayor() {
+    
+    public Articulo(float costoBaseInicial) {
+        costoBase = costoBaseInicial;
+    }
+    
+    
+    public void cambiarCostoBase(float nuevoCosto) {
+        costoBase = nuevoCosto;
+    }
+    
+    public float calcularPrecioAlMayor() {
         // aqui hace algo
         
         // Var precio
@@ -28,7 +44,7 @@ public class Articulo {
         return costoBase + valorIncremento;
     }
     
-    float calcularPrecioAlMenor() {
+    public float calcularPrecioAlMenor() {
         float valorIncremento = costoBase * PORCENTAJE_INCREMENTO_PRECIO_MENOR;
         
         return costoBase + valorIncremento;

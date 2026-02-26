@@ -17,8 +17,8 @@ public class Main {
         System.out.println("Ingrese costo base");
         costoBase = Float.valueOf(scanner.nextLine());
         
-        Articulo articulo = new Articulo();
-        articulo.costoBase = costoBase;
+        Articulo articulo = new Articulo(costoBase);
+       //articulo.cambiarCostoBase(costoBase);
         
         float precioAlMayor = articulo.calcularPrecioAlMayor();
         float precioAlMEnor = articulo.calcularPrecioAlMenor();

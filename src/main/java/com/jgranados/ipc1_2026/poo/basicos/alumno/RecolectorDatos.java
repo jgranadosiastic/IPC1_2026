@@ -14,21 +14,24 @@ public class RecolectorDatos {
     
     
     void recolectarDatos(Alumno alumno) {
+        float[] notas = new float[3];
         
         Scanner scanner =new Scanner(System.in);
         System.out.println("Ingrese un CUI:");
-        alumno.cui = scanner.nextLine();
+        alumno.cambiarCui(scanner.nextLine());
         
         System.out.println("Ingrese un NOmbre:");
-        alumno.nombre = scanner.nextLine();
+        alumno.cambiarNombre(scanner.nextLine());
         
         System.out.println("NOta 1");
-        alumno.notas[0] = Integer.valueOf(scanner.nextInt());
+        notas[0] = Integer.valueOf(scanner.nextInt());
         
         System.out.println("NOta 2");
-        alumno.notas[1] = Integer.valueOf(scanner.nextInt());
+        notas[1] = Integer.valueOf(scanner.nextInt());
         
         System.out.println("NOta 3");
-        alumno.notas[2] = Integer.valueOf(scanner.nextInt());
+        notas[2] = Integer.valueOf(scanner.nextInt());
+        
+        alumno.cambiarNotas(notas);
     }
 }
