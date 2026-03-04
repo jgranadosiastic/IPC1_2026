@@ -15,6 +15,7 @@ public class BicicletaCarrera extends Bicicleta {
         
     }
     
+    @Override
     public void frenar() {
         System.out.println("Frenando desde bicicleta carrera: " + tipoFreno);
     }
