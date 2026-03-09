@@ -4,6 +4,7 @@
  */
 package com.jgranados.ipc1_2026.poo.basicos.figuras;
 
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -27,8 +28,12 @@ public class AdminDeCalculos {
             int opcion = solicitarOpcionFigura();
             FiguraGeometrica figura = instanciarFigura(opcion);
             figuras[i] = figura;
-            figura.solicitarDatos();
+            pedirDAtosFigura(figura);
         }
+    }
+    
+    private void pedirDAtosFigura(FiguraGeometrica figura) {
+        figura.solicitarDatos();
     }
     
     private int solicitarOpcionFigura() {
@@ -38,6 +43,8 @@ public class AdminDeCalculos {
         System.out.println("3. Cuadrado");
         
         return Integer.valueOf(scanner.nextLine());
+        /*Random random = new Random();
+        return random.nextInt(2) + 1;*/
     }
     
     public void mostrarCalculos() {
@@ -48,13 +55,16 @@ public class AdminDeCalculos {
     }
     
     private FiguraGeometrica instanciarFigura(int opcion) {
+        FiguraGeometrica figuraCreada ;
         if (opcion == 1) {
-            return new Circulo();
+            figuraCreada =  new Circulo();
         } else if (opcion == 2) {
-            return new Rectangulo();
-        }
+            figuraCreada = new Rectangulo();
+        } else {
         
-        return new Cuadrado();
+            figuraCreada =  new Cuadrado();
+        }
+        return figuraCreada;
     }
     
 }
