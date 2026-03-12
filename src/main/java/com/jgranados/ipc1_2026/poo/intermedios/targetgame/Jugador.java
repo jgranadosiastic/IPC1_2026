@@ -29,13 +29,19 @@ public class Jugador {
         Tiro tiro = seleccionarTiro();
         int puntaje = tiro.calcularPuntaje();
         punteo = punteo + puntaje;
+        mostrarPuntajeObtenido(puntaje);
+    }
+    
+    private void mostrarPuntajeObtenido(int puntaje) {
+        System.out.printf("El jugador %s obtuvo %d puntos y su total es: %d\n",
+                nombre, puntaje, punteo);
     }
     
     public boolean esGanador() {
         return punteo >= PUNTEO_PARA_GANAR;
     }
     
-    public Tiro seleccionarTiro() {
+    private Tiro seleccionarTiro() {
         int opcion;
         System.out.println("1. Tiro Rapido ");
         System.out.println("2. Tiro Controlado");
@@ -58,5 +64,13 @@ public class Jugador {
             default:
                 return new TiroBajoElBrazo();
         }
+    }
+    
+    public String obtenerNombre() {
+        return nombre;
+    }
+    
+    public int obtenerPunteo() {
+        return punteo;
     }
 }
