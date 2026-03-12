@@ -14,29 +14,28 @@ import java.util.Scanner;
 public class Partida {
 
     private Jugador[] jugadores;
-    
+
     public void ejecutarPartida() {
         pedirJugadores();
         ordenarJugadores();
         int indice = 0;
         Jugador jugadorEnTurno;
         do {
+            mostrarPuntajesActuales();
             jugadorEnTurno = jugadores[indice];
-            
-            System.out.println("JUgador en turno:" + jugadorEnTurno.obtenerNombre());
-            
-            jugadorEnTurno.lanzarTiro();            
+
+            System.out.println("Jugador en turno:" + jugadorEnTurno.obtenerNombre());
+
+            jugadorEnTurno.lanzarTiro();
             indice = calcularNuevoIndiceEnTurno(indice);
         } while (!jugadorEnTurno.esGanador());
-        
-        System.out.printf("El jugador %s ya gano con %d puntos\n", 
+
+        System.out.printf("El jugador %s ya gano con %d puntos\n",
                 jugadorEnTurno.obtenerNombre(),
                 jugadorEnTurno.obtenerPunteo());
-        
+
     }
-    
-    
-    
+
     private int calcularNuevoIndiceEnTurno(int indiceActual) {
         int ultimoIndice = jugadores.length - 1;
         if (indiceActual == ultimoIndice) {
@@ -75,17 +74,27 @@ public class Partida {
                 j++;
             }
         }
-        
+
         jugadores = listadoOrdenado;
     }
-    
+
     public boolean haberGanador() {
         for (Jugador jugador : jugadores) {
             if (jugador.esGanador()) {
                 return true;
             }
         }
-        
+
         return false;
+    }
+    
+    private void mostrarPuntajesActuales() {
+        System.out.println("----------- PUNTAJES -------------");
+        for (Jugador jugador : jugadores) {
+            System.out.printf("%d: jugador %s\n",
+                    jugador.obtenerPunteo(),
+                    jugador.obtenerNombre());
+        }
+        System.out.println("----------------------------------");
     }
 }
