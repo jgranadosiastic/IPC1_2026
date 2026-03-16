@@ -8,13 +8,9 @@ package com.jgranados.ipc1_2026.poo.basicos.figuras;
  *
  * @author jose
  */
-public class FiguraGeometrica {
+public abstract class FiguraGeometrica {
     
-    public double calcularArea() {
-        return 0.0;
-    }
+    public abstract double calcularArea();
     
-    public void solicitarDatos() {
-        
-    }
+    public abstract void solicitarDatos();
 }
