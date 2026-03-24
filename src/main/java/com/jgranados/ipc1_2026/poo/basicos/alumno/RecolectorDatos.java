@@ -24,13 +24,13 @@ public class RecolectorDatos {
         alumno.cambiarNombre(scanner.nextLine());
         
         System.out.println("NOta 1");
-        notas[0] = Integer.valueOf(scanner.nextInt());
+        notas[0] = Integer.valueOf(scanner.nextLine());
         
         System.out.println("NOta 2");
-        notas[1] = Integer.valueOf(scanner.nextInt());
+        notas[1] = Integer.valueOf(scanner.nextLine());
         
         System.out.println("NOta 3");
-        notas[2] = Integer.valueOf(scanner.nextInt());
+        notas[2] = Integer.valueOf(scanner.nextLine());
         
         alumno.cambiarNotas(notas);
     }
