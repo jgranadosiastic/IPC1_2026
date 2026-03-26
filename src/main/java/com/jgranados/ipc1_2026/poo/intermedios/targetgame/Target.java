@@ -4,14 +4,24 @@
  */
 package com.jgranados.ipc1_2026.poo.intermedios.targetgame;
 
+import java.util.Scanner;
+
 /**
  *
  * @author jose
  */
 public class Target {
-    
+
     public static void main(String[] args) {
-        Partida partida = new Partida();
-        partida.ejecutarPartida();
+        String opcion;
+        Scanner scanner = new Scanner(System.in);
+        GrabadorPuntaje grabador = new GrabadorPuntaje();
+        do {
+            Partida partida = new Partida(grabador);
+            partida.ejecutarPartida();
+
+            System.out.println("Desea otra partida? (SI/NO)");
+            opcion = scanner.nextLine();
+        } while (opcion.equalsIgnoreCase("si"));
     }
 }

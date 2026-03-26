@@ -21,7 +21,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.jgranados.ipc1_2026.ImprimirColores</mainClass>
+                            <mainClass>com.jgranados.ipc1_2026.poo.intermedios.targetgame.Target</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

@@ -41,7 +41,7 @@ public class MainArchivosTexto {
         
         //escribirBytes("esto es un texto nuevo\nesta es una linea nueva");
         //escribirConWriter("esto es un texto nuevo\nesta es una linea nueva");
-        //escribirConPrinter("esto es un texto nuevo\nesta es una linea nueva");
+        escribirConPrinter("esto es un texto nuevo\nesta es una linea nueva");
         
         System.out.println("leer en bytes");
         leerTextoEnBytes();
@@ -131,8 +131,9 @@ public class MainArchivosTexto {
     
     public static void escribirConWriter(String texto) {
         File miArchivo = new File(PATH_COMPLETO);
-        try (FileWriter writer = new FileWriter(miArchivo)) {
+        try (FileWriter writer = new FileWriter(miArchivo, StandardCharsets.UTF_8, true)) {
             writer.append(texto);
+            writer.append("hola").append(" ").append("mundo\n");
             writer.write(texto);
         } catch (IOException e) {
             // manejar el error
@@ -143,7 +144,6 @@ public class MainArchivosTexto {
         File miArchivo = new File(PATH_COMPLETO);
         try (FileWriter fileWriter = new FileWriter(miArchivo, true);
                 PrintWriter writer = new PrintWriter(fileWriter)) {
-            writer.println(texto);
             writer.println(texto);
         } catch (IOException e) {
             // manejar el error

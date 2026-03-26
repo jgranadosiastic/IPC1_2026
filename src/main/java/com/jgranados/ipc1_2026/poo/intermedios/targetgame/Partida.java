@@ -14,6 +14,11 @@ import java.util.Scanner;
 public class Partida {
 
     private Jugador[] jugadores;
+    private GrabadorPuntaje grabador;
+    
+    public Partida(GrabadorPuntaje grabador) {
+        this.grabador = grabador;
+    }
 
     public void ejecutarPartida() {
         pedirJugadores();
@@ -33,6 +38,7 @@ public class Partida {
         System.out.printf("El jugador %s ya gano con %d puntos\n",
                 jugadorEnTurno.obtenerNombre(),
                 jugadorEnTurno.obtenerPunteo());
+        grabador.grabarGanador(jugadorEnTurno);
 
     }
 
