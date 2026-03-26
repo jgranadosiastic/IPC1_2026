@@ -24,25 +24,25 @@ import java.util.Scanner;
  * @author jose
  */
 public class MainArchivosTexto {
-    
+
     public static final String PATH_ARCHIVO = "/home/jose/CUNOC/IPC1/2026 01/";
     public static final String NOMBRE_ARCHIVO = "primertexto.txt";
     public static final String PATH_COMPLETO = PATH_ARCHIVO + NOMBRE_ARCHIVO;
-    
+
     public static void main(String[] args) {
         File miArchivo = new File(PATH_ARCHIVO);
         System.out.println("El archivo existe?" + miArchivo.exists());
         System.out.println("Path:" + miArchivo.getAbsolutePath());
         System.out.println("es dir:" + miArchivo.isDirectory());
-        
+
         if (miArchivo.isDirectory()) {
             System.out.println("cantidad de archivos?" + miArchivo.listFiles().length);
         }
-        
+
         //escribirBytes("esto es un texto nuevo\nesta es una linea nueva");
         //escribirConWriter("esto es un texto nuevo\nesta es una linea nueva");
         escribirConPrinter("esto es un texto nuevo\nesta es una linea nueva");
-        
+
         System.out.println("leer en bytes");
         leerTextoEnBytes();
         System.out.println("Leer con buffer");
@@ -50,7 +50,7 @@ public class MainArchivosTexto {
         System.out.println("Leer con scanner");
         leerTextoConScanner();
     }
-    
+
     public static void leerTextoEnBytes() {
         File miArchivo = new File(PATH_COMPLETO);
         /*FileInputStream inputStream = null;
@@ -74,7 +74,7 @@ public class MainArchivosTexto {
                 }
             }
         }*/
-        
+
         
         try (FileInputStream inputStream2 = new FileInputStream(miArchivo)) {
             int byteEnArchivo = inputStream2.read();
@@ -83,13 +83,13 @@ public class MainArchivosTexto {
                 System.out.print(caracter);
                 byteEnArchivo = inputStream2.read();
             }
-            
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
     }
-    
+
     public static void leerTextoConBufferReader() {
         File miArchivo = new File(PATH_COMPLETO);
         try (FileReader reader = new FileReader(miArchivo);) {
@@ -103,7 +103,7 @@ public class MainArchivosTexto {
             e.printStackTrace();
         }
     }
-    
+
     public static void leerTextoConScanner() {
         File miArchivo = new File(PATH_COMPLETO);
         try (InputStream inputStream = new FileInputStream(miArchivo)) {
@@ -119,7 +119,7 @@ public class MainArchivosTexto {
             e.printStackTrace();
         }
     }
-    
+
     public static void escribirBytes(String texto) {
         File miArchivo = new File(PATH_COMPLETO);
         try (FileOutputStream outputStream = new FileOutputStream(miArchivo)) {
@@ -128,7 +128,7 @@ public class MainArchivosTexto {
             e.printStackTrace();
         }
     }
-    
+
     public static void escribirConWriter(String texto) {
         File miArchivo = new File(PATH_COMPLETO);
         try (FileWriter writer = new FileWriter(miArchivo, StandardCharsets.UTF_8, true)) {
@@ -139,7 +139,7 @@ public class MainArchivosTexto {
             // manejar el error
         }
     }
-    
+
     public static void escribirConPrinter(String texto) {
         File miArchivo = new File(PATH_COMPLETO);
         try (FileWriter fileWriter = new FileWriter(miArchivo, true);

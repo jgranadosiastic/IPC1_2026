@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class RecolectorDatos {
     
     
-    void recolectarDatos(Alumno alumno) {
+    public void recolectarDatos(Alumno alumno) {
         float[] notas = new float[3];
         
         Scanner scanner =new Scanner(System.in);

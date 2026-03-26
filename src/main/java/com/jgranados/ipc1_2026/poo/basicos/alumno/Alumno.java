@@ -60,4 +60,8 @@ public class Alumno {
             System.out.println("NO aprobo");
         }
     }
+    
+    public String obtenerCui() {
+        return cui;
+    }
 }
