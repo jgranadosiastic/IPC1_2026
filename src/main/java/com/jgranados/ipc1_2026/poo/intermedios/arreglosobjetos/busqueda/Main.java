@@ -17,6 +17,7 @@ public class Main {
 
     RecolectorDatos recolectorDatos = new RecolectorDatos();
     BusquedaSecuencial busquedaSecuencial = new BusquedaSecuencial();
+    BusquedaBinaria busquedaBinaria = new BusquedaBinaria();
 
     public static void main(String[] args) {
         Main main = new Main();
@@ -69,7 +70,8 @@ public class Main {
             String cui = scanner.nextLine();
 
             try {
-                Alumno alumnoEncontrado = busquedaSecuencial.encontrarAlumno(alumnos, cui);
+                //Alumno alumnoEncontrado = busquedaSecuencial.encontrarAlumno(alumnos, cui);
+                Alumno alumnoEncontrado = busquedaBinaria.encontrarAlumno(alumnos, cui);
                 alumnoEncontrado.imprimirEstado();
             } catch (ElementoNoEncontradoException e) {
                 System.out.println(e.getMessage());

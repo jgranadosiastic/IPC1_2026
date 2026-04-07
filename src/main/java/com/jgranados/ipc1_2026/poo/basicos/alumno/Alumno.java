@@ -64,4 +64,12 @@ public class Alumno {
     public String obtenerCui() {
         return cui;
     }
+    
+    public boolean esCuiIgual(String otroCui) {
+        return cui.equalsIgnoreCase(otroCui);
+    }
+    
+    public boolean esCuiMenor(String otroCui) {
+        return cui.compareToIgnoreCase(otroCui) < 0;
+    }
 }
