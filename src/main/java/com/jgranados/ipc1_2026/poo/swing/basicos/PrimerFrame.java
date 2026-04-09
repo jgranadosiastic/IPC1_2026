@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.jgranados.ipc1_2026.poo.swing;
+package com.jgranados.ipc1_2026.poo.swing.basicos;
 
 import com.jgranados.ipc1_2026.poo.basicos.alumno.Alumno;
 import com.jgranados.ipc1_2026.poo.intermedios.arreglosobjetos.ordenamiento.OrdenamientoBurbuja;
+import com.jgranados.ipc1_2026.poo.swing.FrameAsistido;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
@@ -83,8 +84,5 @@ public class PrimerFrame {
         
         miFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         miFrame.setVisible(true);
-        
-        FrameAsistido frameAsistido = new FrameAsistido();
-        frameAsistido.setVisible(true);
     }
 }
