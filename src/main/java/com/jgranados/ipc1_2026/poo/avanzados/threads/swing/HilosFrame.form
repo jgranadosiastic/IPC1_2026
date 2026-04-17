@@ -126,9 +126,8 @@
       <SubComponents>
         <Container class="javax.swing.JPanel" name="pnlCajeros">
 
-          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-            <Property name="columns" type="int" value="10"/>
-            <Property name="rows" type="int" value="0"/>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+            <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
         </Container>
       </SubComponents>

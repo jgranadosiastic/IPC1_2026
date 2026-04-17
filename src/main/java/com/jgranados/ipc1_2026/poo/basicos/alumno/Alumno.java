@@ -32,7 +32,7 @@ public class Alumno {
     }
     
     
-    private float calcularPromedio() {
+    public float calcularPromedio() {
         float total = 0;
         for (int i = 0; i < notas.length; i++) {
             total = total + notas[i];
@@ -71,5 +71,9 @@ public class Alumno {
     
     public boolean esCuiMenor(String otroCui) {
         return cui.compareToIgnoreCase(otroCui) < 0;
+    }
+    
+    public String obtenerNombre() {
+        return nombre;
     }
 }

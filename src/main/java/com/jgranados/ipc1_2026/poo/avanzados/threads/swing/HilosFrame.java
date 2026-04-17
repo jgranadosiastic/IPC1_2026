@@ -4,6 +4,8 @@
  */
 package com.jgranados.ipc1_2026.poo.avanzados.threads.swing;
 
+import org.netbeans.lib.awtextra.AbsoluteConstraints;
+
 /**
  *
  * @author jose
@@ -19,6 +21,8 @@ public class HilosFrame extends javax.swing.JFrame {
     public HilosFrame() {
         initComponents();
         contadorCajeros = 1;
+        // null layout
+        //pnlCajeros.setLayout(null);
     }
 
     /**
@@ -81,7 +85,7 @@ public class HilosFrame extends javax.swing.JFrame {
         scrollCAjeros.setMinimumSize(new java.awt.Dimension(550, 550));
         scrollCAjeros.setPreferredSize(new java.awt.Dimension(550, 550));
 
-        pnlCajeros.setLayout(new java.awt.GridLayout(0, 10));
+        pnlCajeros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         scrollCAjeros.setViewportView(pnlCajeros);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -111,10 +115,21 @@ public class HilosFrame extends javax.swing.JFrame {
     private void btnProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcesarActionPerformed
         int cantidad = (Integer) spnArticulos.getValue();
         PanelCajero cajero = new PanelCajero("Cajero " + contadorCajeros, cantidad);
-        pnlCajeros.add(cajero);
-        cajero.setLocation(100, 100);
+        // absolute layout
+        pnlCajeros.add(cajero, new AbsoluteConstraints(100 * contadorCajeros, 100 * contadorCajeros, -1, -1));
         pnlCajeros.revalidate();
         pnlCajeros.repaint();
+        
+        // null layout
+        /*pnlCajeros.add(cajero);
+        cajero.setBounds(100 * contadorCajeros, 100 * contadorCajeros, 100, 100);
+        pnlCajeros.revalidate();
+        pnlCajeros.repaint();
+        pnlCajeros.setSize(100 * contadorCajeros, 100 * contadorCajeros);
+        scrollCAjeros.revalidate();
+        scrollCAjeros.repaint();
+*/
+        
         Thread cajeroThread = new Thread(cajero);
         cajeroThread.start();
         contadorCajeros++;
