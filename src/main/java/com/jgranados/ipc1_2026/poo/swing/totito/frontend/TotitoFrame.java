@@ -7,6 +7,7 @@ package com.jgranados.ipc1_2026.poo.swing.totito.frontend;
 import com.jgranados.ipc1_2026.poo.swing.totito.backend.MotorTotito;
 import com.jgranados.ipc1_2026.poo.swing.totito.backend.exceptions.CasillaMarcadaException;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -15,6 +16,9 @@ import javax.swing.JOptionPane;
  * @author jose
  */
 public class TotitoFrame extends javax.swing.JFrame {
+    
+    private static final String PATH_CIRCLE = "/images/totito/icons8-circle-96.png";
+    private static final String PATH_CROSS = "/images/totito/icons8-cross-96.png";
 
     private MotorTotito motorTotito = new MotorTotito();
 
@@ -342,9 +346,9 @@ public class TotitoFrame extends javax.swing.JFrame {
             motorTotito.marcarCasilla(fila, columna);
 
             if (motorTotito.obtenerJugadorEnTurno().getMarca() == 1) {
-                etiqueta.setText("O");
+                etiqueta.setIcon(new ImageIcon(getClass().getResource(PATH_CIRCLE)));
             } else {
-                etiqueta.setText("X");
+                etiqueta.setIcon(new ImageIcon(getClass().getResource(PATH_CROSS)));
             }
             
             if (motorTotito.hayGanador()) {
