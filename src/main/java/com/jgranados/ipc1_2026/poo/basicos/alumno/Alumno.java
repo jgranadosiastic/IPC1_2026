@@ -4,11 +4,13 @@
  */
 package com.jgranados.ipc1_2026.poo.basicos.alumno;
 
+import java.io.Serializable;
+
 /**
  *
  * @author jose
  */
-public class Alumno {
+public class Alumno implements Serializable {
     private String cui;
     private String nombre;
     private float[] notas = new float[3];
